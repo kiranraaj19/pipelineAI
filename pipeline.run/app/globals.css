@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --primary: 151 55% 41.8%;
+  --primary-foreground: 355.7 100% 97.3%;
+  --secondary: 240 5.9% 10%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 151 55% 41.8%;
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: 20 14.3% 4.1%;
+  --foreground: 0 0% 95%;
+  --card: 24 9.8% 10%;
+  --card-foreground: 0 0% 95%;
+  --popover: 0 0% 9%;
+  --popover-foreground: 0 0% 95%;
+  --primary: 151 55% 41.8%;
+  --primary-foreground: 144.9 80.4% 10%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 240 5% 64.9%;
+  --accent: 12 6.5% 15.1%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 85.7% 97.3%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 151 55% 41.8%;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Add styles for markdown content */
+@layer components {
+  .prose {
+    @apply text-foreground max-w-none;
+  }
+
+  .prose p {
+    @apply my-0;
+  }
+
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    @apply text-foreground font-semibold mt-4 mb-2;
+  }
+
+  .prose code {
+    @apply bg-muted px-1 py-0.5 rounded text-sm;
+  }
+
+  .prose pre {
+    @apply bg-muted p-4 rounded-lg my-4 overflow-x-auto;
+  }
+
+  .prose ul,
+  .prose ol {
+    @apply my-2 pl-6;
+  }
+
+  .prose li {
+    @apply my-1;
+  }
+
+  .prose a {
+    @apply text-primary;
+  }
+
+  .prose a:hover {
+    @apply underline;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-muted pl-4 my-4 italic;
+  }
+
+  .prose table {
+    @apply w-full my-4;
+  }
+
+  .prose table th,
+  .prose table td {
+    @apply p-2 border border-border;
+  }
+
+  .prose table th {
+    @apply bg-muted;
+  }
+
+  .prose hr {
+    @apply my-4 border-border;
+  }
+
+  /* Modern card styles */
+  .card-modern {
+    @apply bg-card rounded-xl border border-border/40 shadow-lg transition-all duration-300 hover:shadow-xl hover:border-primary/20 hover:-translate-y-1;
+  }
+
+  /* Glass effect */
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-lg;
+  }
+
+  /* Animated typing effect */
+  .typing-effect {
+    @apply overflow-hidden whitespace-nowrap border-r-4 border-primary;
+    animation: typing 4s steps(40, end) infinite, blink 0.75s step-end infinite;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/70;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
